@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It's time to die Bitch!!</title>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f4f4f4;
+          margin: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+      }
+
+      .container {
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+          text-align: center;
+          max-width: 400px;
+          width: 90%;
+      }
+
+      h1 {
+          margin-top: 0;
+      }
+
+      label {
+          display: block;
+          margin-top: 10px;
+          font-weight: bold;
+      }
+
+      input {
+          width: 100%;
+          padding: 8px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          margin-top: 4px;
+          margin-bottom: 10px;
+      }
+
+      button {
+          background-color: #007bff;
+          color: #fff;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 4px;
+          cursor: pointer;
+          width: 100%;
+      }
+
+      button:hover {
+          background-color: #0056b3;
+      }
+
+      #result {
+          margin-top: 20px;
+          font-weight: bold;
+      }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>It's Time to die bitch!!!</h1>
+    <label for="name">Enter your name:</label>
+    <input type="text" id="name" placeholder="Your Name">
+    <label for="age">Enter your current age:</label>
+    <input type="number" id="age" placeholder="Your Age">
+    <button id="predictBtn">Predict Your Fate</button>
+    <div id="result"></div>
+    
+</div>
+    <script>
+      const causesOfDeath = [
+      "Natural Causes",
+      "Accident",
+      "Disease",
+      "Unknown",
+      "Old Age",
+      "Freak Event",
+      "Heart Attack",
+      "Cancer",
+      "Anal",
+      "Laughing",
+      "Stroke",
+      "Infection",
+      "Health Complications",
+      "Suicide",
+      "Homicide",
+      "Drug Overdose",
+      "Environmental Factors",
+      "Medical Error",
+      "Freezing to Death",
+      "Death by Chocolate",
+      "Spontaneous Combustion",
+      "Selfie Mishap",
+      "Being Hit by a Falling Coconut",
+      "Tickled to Death",
+      "Exploded from Too Much Soda",
+      "Death by WiFi",
+      "Choked on Air",
+      "Died of Boredom",
+      "Swallowed by a Whale",
+      "Crushed by a Giant Rubber Duck",
+      "Inhaled Too Many Dorito Dust Particles",
+      "Death by Overthinking",
+      "Eaten by a Grue",
+      "Died Trying to Pet a Lion",
+      "Attacked by Killer Bees",
+      "Death by Punctuation",
+      "Turned into a Pumpkin",
+      "Struck by Falling Space Debris",
+      "Fell into a Portal to Another Dimension",
+      "Zombie Apocalypse",
+      "Death by Sarcasm",
+      "Drowned in a Sea of Socks",
+      "Fell Asleep on the Keyboard",
+      "Death by Emoji Overdose",
+      "Chased by a Horde of Angry Geese",
+      "Died While Solving a Rubik's Cube",
+      "Anvil Fell on Head",
+      "Overdose of Cheesy Pickup Lines",
+      "Suffocated by Bubble Wrap",
+      "Death by Excessive Selfies",
+      "Died from a Laughter Overdose",
+      "Eaten by a Venus Flytrap",
+      "Death by Overexaggeration",
+      "Spontaneous Dance-Off Fatality",
+      "Poked a Sleeping Bear",
+      "Died of Curiosity",
+      "Chased by Unicorns",
+      "Death by Marshmallow",
+      "Swallowed by a Sinkhole",
+      "Died from Sudden Invisibility",
+      "Choked on Your Own Tongue",
+      "Death by Awkward Silence",
+      "Turned Into a Pumpkin Spice Latte",
+      "Stared at the Sun Too Long",
+      "Death by Sneezing",
+      "Died While Waiting for a Web Page to Load",
+      "Chased by Evil Garden Gnomes",
+      "Death by Overenthusiastic High-Five",
+      "Died in a Llama Stampede",
+      "Eaten by a Giant Pancake",
+      "Death by Bad Jokes",
+      "Binge-Watched Themselves to Death",
+      "Died of a Broken Heart",
+      "Death by Instant Messaging",
+      "Crashed Hoverboard Into a Wall",
+      "Died from Extreme Puzzling",
+      "Death by Alien Abduction",
+      "Turned into a Cartoon Character",
+      "Died from Spontaneous Dancing",
+      "Choked on Their Own Tongue Twister",
+      "Death by Emoji Miscommunication",
+      "Suffocated by a Pile of Puppies",
+      "Died While Trying to Lick Their Elbow",
+      "Death by Misplaced Sarcasm",
+      "Eaten by a Giant Emoji",
+      "Death by Excessive Use of Emoticons",
+      "Died from a Pillow Fight",
+      "Crushed by a Giant Rubber Chicken",
+      "Death by Overuse of Hashtags",
+      "Turned into a Human Disco Ball",
+      "Died of a Failed Attempt to Moonwalk",
+      "Death by Too Much Daydreaming",
+      "Drowned in a Sea of Candy Wrappers",
+      "Eaten by a Rogue Roomba",
+      "Death by Extreme Thumb Wrestling",
+      "Died While Chasing After Rainbows",
+      "Choked on a Cloud",
+      "Death by Falling Asleep in a Virtual Reality",
+      "Suffocated by Excessive Hugs",
+      "Died While Trying to Outrun a Snail",
+      "Death by Obsessive Clicking",
+      "Turned Into a Living Punctuation Mark",
+      "Died from Too Much Happy Hour",
+      "Death by Misplaced Autocorrect",
+      "Eaten by a Giant Keyboard",
+      "Death by Uncontrollable Laughter",
+      "Died from an Overcharged Battery",
+      "Death by Acute Silliness"
+  ];
+  
+  
+  document.getElementById('predictBtn').addEventListener('click', () => {
+      const name = document.getElementById('name').value;
+      const age = parseInt(document.getElementById('age').value);
+      const predictBtn = document.getElementById('predictBtn');
+  
+      if (name.trim() === "" || isNaN(age) || age <= 0) {
+          alert('Please enter a valid name and age.');
+          return;
+      }
+  
+      const remainingYears = Math.max(0, age + Math.floor(Math.random() * 100) - age); // Generate a random remaining life span
+      const randomCause = causesOfDeath[Math.floor(Math.random() * causesOfDeath.length)]; // Random cause of death
+  
+      const result = `Dear ${name}, based on your current age of ${age}, you have approximately ${remainingYears} years left to live. You will die due to ${randomCause}.`;
+      document.getElementById('result').textContent = result;
+  
+      predictBtn.disabled = true; // Disable the button after clicking
+      predictBtn.style.display = 'none'; // Hide the button after clicking
+  });
+  
+  </script>
+</body>
+</html>
